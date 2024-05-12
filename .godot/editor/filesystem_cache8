@@ -1,0 +1,8 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1715550009
+icon.svg::CompressedTexture2D::104744814135343641::1715488890::1715488893::1::::<><>::
+::res://Assets/::1715489664
+Grass.png::CompressedTexture2D::1885538773906460945::1715488916::1715488918::1::::<><>::
+Terrain.tres::TileSet::925905973522896046::1715489664::0::1::::<><>::uid://14msvvr68yrx::::res://Assets/Grass.png
+::res://Scenes/::1715489664
+World.tscn::PackedScene::8067166391581911110::1715489664::0::1::::<><>::uid://ngrsh0ftrbek::::res://Assets/Terrain.tres
