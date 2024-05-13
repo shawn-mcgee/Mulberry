@@ -65,7 +65,7 @@ The player can establish villager priorities using a simple table like the one b
 | Shawn    | 1️⃣  | 1️⃣  | 1️⃣  | 1️⃣  | ❌      |     |
 
 ### Schedule
-The player can establish villager schedules using a simple table like the one below. In the following example, the villagers Shannon and Shawn are nocturnal, so their schedules are arranged for them to work at night and sleep during the day; whereas Shamus and Sheryl or diurnal.
+The player can establish villager schedules using a simple table like the one below. In the following example, the villagers Shannon and Shawn are nocturnal, so their schedules are arranged for them to work at night and sleep during the day; whereas Shamus and Sheryl are diurnal.
 
 | Villager | 12AM | 1AM | 2AM | 3AM | 4AM | 5AM | 6AM | ... |
 | -------- | ---- | --- | --- | --- | --- | --- | --- | --- |
