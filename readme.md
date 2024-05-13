@@ -73,5 +73,6 @@ The player can establish villager schedules using a simple table like the one be
 | Sheryl   | 🟪   | 🟪  | 🟪  | 🟪  | 🟪  | 🟩  | 🟩  |     |
 | Shannon  | 🟩   | 🟩  | 🟩  | 🟩  | 🟩  | 🟩  | 🟪  |     |
 | Shawn    | 🟩   | 🟩  | 🟩  | 🟩  | 🟩  | 🟩  | 🟪  |     |
+
 🟪 - Sleep
 🟩 - Work
