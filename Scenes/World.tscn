@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://dm62b06t116yk"]
+[gd_scene load_steps=4 format=3 uid="uid://dm62b06t116yk"]
 
+[ext_resource type="Script" path="res://Scripts/World.gd" id="1_k7ahv"]
 [ext_resource type="TileSet" uid="uid://ngrsh0ftrbek" path="res://Assets/Terrain.tres" id="1_mc57s"]
 [ext_resource type="PackedScene" uid="uid://bniieujwuj8mx" path="res://Scenes/Villager.tscn" id="2_uc05v"]
 
 [node name="World" type="Node2D"]
+script = ExtResource("1_k7ahv")
 
 [node name="TileMap" type="TileMap" parent="."]
 y_sort_enabled = true
