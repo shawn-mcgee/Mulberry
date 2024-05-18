@@ -15,10 +15,14 @@ func initialize(tilemap: TileMap):
 
 
 func calculate_path(from: Vector2, to: Vector2) -> PackedVector2Array:
+	var path := PackedVector2Array()
 	var from_cell: Vector2i = _tilemap.local_to_map(from)
 	var to_cell: Vector2i = _tilemap.local_to_map(to)
-	var path := _astar.get_point_path(_cell_ids[from_cell], _cell_ids[to_cell])
-	path.remove_at(0)
+	if from_cell in _cell_ids and to_cell in _cell_ids:
+		path = _astar.get_point_path(_cell_ids[from_cell], _cell_ids[to_cell])
+		path.remove_at(0)
+	if path.is_empty():
+		print("Pathfinder :: calculate_path :: Cannot calculate path from [", from, "]", " to [", to, "]")
 	return path
 	
 
