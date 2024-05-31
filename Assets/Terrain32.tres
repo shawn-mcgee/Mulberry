@@ -1,7 +1,7 @@
 [gd_resource type="TileSet" load_steps=5 format=3 uid="uid://ck7pwdjodi1n1"]
 
 [ext_resource type="Texture2D" uid="uid://7r4d78wdp3l4" path="res://Assets/grass32.png" id="1_wgqia"]
-[ext_resource type="Texture2D" uid="uid://bw0420qanl3vp" path="res://Assets/isometric tileset/spritesheet.png" id="2_uexgj"]
+[ext_resource type="Texture2D" uid="uid://cvdhir3t3xqs1" path="res://Assets/tiles32.png" id="2_vfw17"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h38my"]
 texture = ExtResource("1_wgqia")
@@ -12,7 +12,7 @@ texture_region_size = Vector2i(32, 32)
 1:0/0/terrain_set = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_70fwp"]
-texture = ExtResource("2_uexgj")
+texture = ExtResource("2_vfw17")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 1:0/0 = 0
@@ -37,14 +37,8 @@ texture_region_size = Vector2i(32, 32)
 9:1/0 = 0
 10:1/0 = 0
 0:2/0 = 0
-0:2/0/terrain_set = 0
-0:2/0/terrain = 0
 1:2/0 = 0
-1:2/0/terrain_set = 0
-1:2/0/terrain = 0
 2:2/0 = 0
-2:2/0/terrain_set = 0
-2:2/0/terrain = 0
 3:2/0 = 0
 4:2/0 = 0
 5:2/0 = 0
@@ -235,6 +229,7 @@ texture_region_size = Vector2i(32, 32)
 9:21/0 = 0
 10:21/0 = 0
 3:8/0 = 0
+9:6/0 = 0
 
 [resource]
 tile_shape = 1
