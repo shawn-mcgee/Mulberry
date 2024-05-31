@@ -32,7 +32,7 @@ func _setup_astar():
 
 
 func _add_points():	
-	var cells: Array[Vector2i] = _tilemap.get_used_cells(DEFAULT_LAYER)
+	var cells: Array[Vector2i] = _tilemap.get_used_cells(DEFAULT_LAYER).filter(_is_walkable_cell)
 	var id: int = 0
 	for cell in cells:
 		_cell_ids[cell] = id
@@ -41,9 +41,9 @@ func _add_points():
 		
 
 func _connect_points():
-	var cells: Array[Vector2i] = _tilemap.get_used_cells(DEFAULT_LAYER)
+	var cells: Array[Vector2i] = _tilemap.get_used_cells(DEFAULT_LAYER).filter(_is_walkable_cell)
 	for cell in cells:
-		var neighbors := _get_neighbor_cells(cell)
+		var neighbors := _get_walkable_neighbor_cells(cell)
 		neighbors = neighbors.filter(
 			func(neighbor): return neighbor in cells)
 		for neighbor in neighbors:
@@ -64,6 +64,12 @@ func _get_neighbor_cells(cell: Vector2i) -> Array:
 		Vector2(cell_position.x + half_tile_size.x, cell_position.y - half_tile_size.y),
 		Vector2(cell_position.x - half_tile_size.x, cell_position.y - half_tile_size.y),
 	]
-	neighbors = neighbors.map(
-		func(neighbor): return _tilemap.local_to_map(neighbor))
+	neighbors = neighbors.map(func(neighbor): return _tilemap.local_to_map(neighbor))
 	return neighbors
+
+func _is_walkable_cell(cell: Vector2i) -> bool:
+	var tile_data = _tilemap.get_cell_tile_data( DEFAULT_LAYER, cell )
+	return tile_data != null and tile_data.get_custom_data("walkable")
+
+func _get_walkable_neighbor_cells(cell: Vector2i) -> Array:
+	return _get_neighbor_cells(cell).filter(_is_walkable_cell)
