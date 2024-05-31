@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d4itcokasbluo"
-path="res://.godot/imported/122.png-a689e19d1b56b670acd3c2fe72f00624.ctex"
+uid="uid://cvdhir3t3xqs1"
+path="res://.godot/imported/tiles32.png-a28e92970f98aaa635490b02400b8a5b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/render/iso/walk/122.png"
-dest_files=["res://.godot/imported/122.png-a689e19d1b56b670acd3c2fe72f00624.ctex"]
+source_file="res://Assets/tiles32.png"
+dest_files=["res://.godot/imported/tiles32.png-a28e92970f98aaa635490b02400b8a5b.ctex"]
 
 [params]
 
