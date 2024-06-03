@@ -1,53 +1,44 @@
 class_name Automata
-extends RefCounted
+extends Node
 
-var _villager: Villager
-var _stack   : Array[Automaton] = [ ]
+@onready var _villager: Villager = get_parent()
+@onready var _automata: Array    = [          ]
 
-func stack_push(task: Task) -> void:
-  var automaton = Automata._new(task)
-  automaton._villager = _villager
-  automaton._automata = self
-  automaton._task     = task
-  _stack.push_front(automaton)
-
-  automaton.__on_init__()
-
-func stack_pop (          ) -> void:
-  _stack.pop_front()
-
-func suspend() -> void:
-  if _stack.front():
-    _stack.front().__on_suspend__()
-
-func resume() -> void:
-  if _stack.front():
-    _stack.front().__on_resume__()
-
+# cancel all tasks
 func cancel() -> void:
-  if _stack.front():
-    _stack.front().__on_cancel__()
+  for automaton in _automata:
+    automaton.__on_cancel__()
+    remove_child( automaton )
+  _automata.clear()
 
-func step() -> void:
-  if _stack.front():
-    _stack.front().__on_step__()
-  
-static func _new(task: Task) -> Automaton:
-  if task is NavigationTask: return NavigationAutomaton.new()
-  # elif task is ...: return ...
-  # elif task is ...: return ...
-  else: return null
+# suspend current task and start new task
+func stack_push(task: Task) -> void:
+  # suspend current task
+  if _automata.size() > 0:
+    _automata.front().__on_suspend__()
+    remove_child( _automata.front( ) )
 
-# serialize automata
-static func   to_array(a: Automata) -> Array[Task]:
-  var array: Array[Task] = [ ]
-  for automaton in a._stack:
-    array.append(automaton._task)
-  return array
+  _automata.push_front(Automaton._new(task))
 
-# deserialize automata
-static func from_array(a: Array[Task]) -> Automata:
-  var automata = Automata.new()
-  for task in a:
-    automata.stack_push( task )
-  return automata
+  # start new task
+  if _automata.size() > 0:
+    add_child(  _automata.front()  )
+    _automata.front().__on_start__()
+    
+# complete current task and resume previous task
+func stack_pop() -> void:
+  if _automata.size() > 0:
+    _automata.front().__on_complete__()
+    remove_child(  _automata.front()  )
+
+  _automata.pop_front()
+
+  if _automata.size() > 0:
+    add_child   ( _automata.front() )
+    _automata.front().__on_resume__()
+    
+
+
+
+
+

@@ -2,19 +2,21 @@ class_name Villager
 extends CharacterBody2D
 
 
-signal moved()
-
-var moving := false
+@export var speed: float = 2.5 # cells per second
 
 
-func move_to(target: Vector2):
-	#TODO: Villager needs proper movement code, this tween is just to test pathfinding
-	if not moving:
-		moving = true
-		var tween := get_tree().create_tween().tween_property(self, "position", target, 0.3)
-		tween.finished.connect(_on_move_ended)
+@onready var _automata: Automata = $Automata
 
+var _selected: bool = false
 
-func _on_move_ended():
-	moving = false
-	moved.emit()
+func _on_acquire() -> void:
+  _selected = true
+  queue_redraw()
+
+func _on_release() -> void:
+  _selected = false
+  queue_redraw()
+
+func _draw():
+  if _selected:
+    draw_arc(to_local(position), 12, 0, TAU, 32, Color.ORANGE)
