@@ -4,8 +4,8 @@ extends Object
 
 static var WIDTH: int = 32
 static var DEPTH: int = 16
-static var HALF_WIDTH: int = WIDTH / 2
-static var HALF_DEPTH: int = DEPTH / 2
+static var HALF_WIDTH: int = int(WIDTH / 2.0)
+static var HALF_DEPTH: int = int(DEPTH / 2.0)
 
 @export var id: int = 0
 @export var world_coordinate: Vector2 = Vector2(0, 0)
